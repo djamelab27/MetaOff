@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MetaOff — Private photo cleaner</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="MetaOff home"><span class="brand-mark">M</span><span>MetaOff</span></a>
+      <div class="local-status"><span></span> Processing stays on this device</div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">PRIVATE PHOTO CLEANER</p>
+        <h1>Share the photo.<br><em>Not its hidden history.</em></h1>
+        <p class="hero-copy">Photos can carry exact coordinates, capture time, camera details, author names, comments, and editing traces. MetaOff exposes them and removes them without uploading a byte.</p>
+        <div class="trust-row" aria-label="Privacy guarantees">
+          <span>100% local</span><i></i><span>Lossless cleaning</span><i></i><span>JPEG · PNG · WebP</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Photo cleaner">
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-describedby="drop-help">
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple hidden>
+          <div class="drop-icon" aria-hidden="true"><span>+</span></div>
+          <h2>Drop photos here</h2>
+          <p id="drop-help">or <span id="choose-files" class="text-button">choose files</span> from your device</p>
+          <small>Up to 100 images · 100 MB per file · files never leave Chrome</small>
+        </div>
+
+        <div id="batch-panel" class="batch-panel" hidden>
+          <div class="batch-head">
+            <div>
+              <p class="eyebrow">LOCAL PRIVACY SCAN</p>
+              <h2 id="batch-title">0 photos</h2>
+              <p id="batch-summary">Looking for hidden metadata…</p>
+            </div>
+            <div class="batch-actions">
+              <button id="add-more" class="button secondary" type="button">Add photos</button>
+              <button id="clear-all" class="button ghost" type="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="settings">
+            <div>
+              <strong>Cleaning mode</strong>
+              <p>Metadata is removed without decoding or recompressing image pixels.</p>
+            </div>
+            <label class="switch-row">
+              <span><strong>Remove color profiles too</strong><small>Maximum privacy; colors may render slightly differently.</small></span>
+              <input id="remove-color" type="checkbox">
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <div id="file-list" class="file-list" aria-live="polite"></div>
+
+          <div class="batch-footer">
+            <div id="selection-stats" class="selection-stats"></div>
+            <button id="clean-all" class="button primary" type="button" disabled>Clean all photos <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <div id="result-panel" class="result-panel" hidden>
+          <div class="result-mark" aria-hidden="true">✓</div>
+          <p class="eyebrow">CLEANING VERIFIED</p>
+          <h2 id="result-title">Your photos are ready.</h2>
+          <p id="result-copy"></p>
+          <div class="result-stats">
+            <div><strong id="stat-files">0</strong><span>files cleaned</span></div>
+            <div><strong id="stat-fields">0</strong><span>metadata signals removed</span></div>
+            <div><strong id="stat-bytes">0 KB</strong><span>hidden data removed</span></div>
+          </div>
+          <div class="result-actions">
+            <button id="download-all" class="button primary" type="button">Download clean ZIP</button>
+            <button id="download-report" class="button secondary" type="button">Privacy report</button>
+            <button id="start-over" class="button ghost" type="button">Clean more photos</button>
+          </div>
+          <p class="verification-note"><span>✓</span> Every output was scanned again after cleaning.</p>
+        </div>
+      </section>
+
+      <section class="explain">
+        <div>
+          <p class="eyebrow">WHAT METAOFF CAN FIND</p>
+          <h2>A photo can be a location record.</h2>
+          <p>Metadata is useful inside a camera roll, but risky on marketplaces, social networks, forums, dating apps, or public documents. MetaOff makes the invisible visible before you share.</p>
+        </div>
+        <div class="signal-grid">
+          <article><span class="signal-icon">⌖</span><strong>Exact location</strong><p>GPS latitude, longitude, and altitude.</p></article>
+          <article><span class="signal-icon">◷</span><strong>Time trail</strong><p>Original capture and editing timestamps.</p></article>
+          <article><span class="signal-icon">▣</span><strong>Device identity</strong><p>Camera, phone model, lens, and software.</p></article>
+          <article><span class="signal-icon">Aa</span><strong>Hidden text</strong><p>Author, copyright, comments, captions, and XMP.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>MetaOff 1.0</span><span>Local by design · no analytics · no network requests</span></footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "MetaOff — Photo Metadata Cleaner",
+  "version": "1.0.0",
+  "description": "See and remove hidden GPS, device, time, author, and editing metadata from photos locally.",
+  "minimum_chrome_version": "102",
+  "action": {
+    "default_title": "Open MetaOff",
+    "default_popup": "popup.html"
+  }
+}
